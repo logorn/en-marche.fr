@@ -201,9 +201,7 @@ abstract class AbstractMessageController extends Controller
             $message->resetFilter();
             $manager->flush();
 
-            return $this->redirectToMessageRoute('filter', [
-                'uuid' => $message->getUuid()->toString(),
-            ]);
+            return $this->redirectToMessageRoute('filter', ['uuid' => $message->getUuid()->toString()]);
         }
 
         $data = $message->getFilter() ?? FilterFactory::create($this->getUser(), $message->getType());
@@ -266,7 +264,7 @@ abstract class AbstractMessageController extends Controller
 
     abstract protected function getMessageType(): string;
 
-    private function renderTemplate(string $template, array $parameters = []): Response
+    protected function renderTemplate(string $template, array $parameters = []): Response
     {
         switch ($messageType = $this->getMessageType()) {
             case AdherentMessageTypeEnum::REFERENT:
@@ -275,6 +273,10 @@ abstract class AbstractMessageController extends Controller
 
             case AdherentMessageTypeEnum::DEPUTY:
                 $baseTemplate = 'message/_base_deputy.html.twig';
+                break;
+
+            case AdherentMessageTypeEnum::COMMITTEE:
+                $baseTemplate = 'message/_base_committee.html.twig';
                 break;
 
             default:
@@ -291,7 +293,7 @@ abstract class AbstractMessageController extends Controller
         ));
     }
 
-    private function redirectToMessageRoute(string $subName, array $parameters = []): Response
+    protected function redirectToMessageRoute(string $subName, array $parameters = []): Response
     {
         return $this->redirectToRoute("app_message_{$this->getMessageType()}_${subName}", $parameters);
     }
