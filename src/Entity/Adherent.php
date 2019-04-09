@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Algolia\AlgoliaSearchBundle\Mapping\Annotation as Algolia;
 use ApiPlatform\Core\Annotation\ApiResource;
+use AppBundle\Entity\ManagedArea\SenatorManagedArea;
 use AppBundle\OAuth\Model\User as InMemoryOAuthUser;
 use AppBundle\Collection\CitizenProjectMembershipCollection;
 use AppBundle\Collection\CommitteeMembershipCollection;
@@ -372,6 +373,11 @@ class Adherent implements UserInterface, UserEntityInterface, GeoPointInterface,
      * @ORM\Column(length=2, nullable=true)
      */
     private $nationality;
+
+    /**
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\ManagedArea\SenatorManagedArea", cascade={"all"})
+     */
+    private $senatorManagedArea;
 
     /**
      * @var bool
@@ -1446,5 +1452,15 @@ class Adherent implements UserInterface, UserEntityInterface, GeoPointInterface,
     public function getCityName(): ?string
     {
         return $this->postAddress->getCityName();
+    }
+
+    public function getSenatorManagedArea(): ?SenatorManagedArea
+    {
+        return $this->senatorManagedArea;
+    }
+
+    public function revokeSenator(): void
+    {
+        $this->senatorManagedArea = null;
     }
 }
