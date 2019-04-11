@@ -103,9 +103,9 @@ public function helloWorldAction(){
         $routeAnnotationStart = strpos($content, '@Route');
         $openingBraceOfRoute = strpos($content, '(', $routeAnnotationStart);
 
-        if (false !== $openingBraceOfFunction = strpos($content, 'condition', $openingBraceOfRoute + 1)) {
-            $closingBraceOfFunction = strpos($content, ')', $openingBraceOfFunction + 1);
-            $routeAnnotationEnd = strpos($content, ')', $closingBraceOfFunction + 1);
+        if (false !== $conditionIndexStart = strpos($content, 'condition', $openingBraceOfRoute + 1)) {
+            $closingIndexEnd = strpos($content, '"', $conditionIndexStart + \strlen('condition') + 2);
+            $routeAnnotationEnd = strpos($content, ')', $closingIndexEnd + 1);
         } else {
             $routeAnnotationEnd = strpos($content, ')', $routeAnnotationStart);
         }
@@ -113,7 +113,7 @@ public function helloWorldAction(){
         $routeLine = substr($content, $routeAnnotationStart, $routeAnnotationEnd - $routeAnnotationStart);
 
         $newRouteLine = substr_count($routeLine, "\n") > 1
-            ? $this->addMethodArgInMultiLineRoute($routeLine, $methodsToMove, $routeAnnotationEnd)
+            ? $this->addMethodArgInMultiLineRoute($routeLine, $methodsToMove)
             : $newRouteLine = $this->addMethodArgInSingleLineRoute($routeLine, $methodsToMove)
         ;
 
@@ -125,7 +125,7 @@ public function helloWorldAction(){
         return str_replace($routeLine, $routeLine.', methods={'.implode(',', $methodsToMove).'}', $routeLine);
     }
 
-    private function addMethodArgInMultiLineRoute(string $routeLine, array $methodsToMove, int $routeAnnotationEnd)
+    private function addMethodArgInMultiLineRoute(string $routeLine, array $methodsToMove)
     {
         $lastLineBreak = strrpos($routeLine, "\n");
         $replacement = ",\n     *     methods={".implode(',', $methodsToMove).'}';

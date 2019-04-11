@@ -8,7 +8,6 @@ use AppBundle\Membership\AdherentManager;
 use AppBundle\History\EmailSubscriptionHistoryHandler;
 use AppBundle\Repository\AdherentRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Entity;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -23,8 +22,7 @@ use Symfony\Component\HttpFoundation\Response;
 class AdherentsController extends Controller
 {
     /**
-     * @Route("/count", name="app_adherents_count")
-     * @Method("GET")
+     * @Route("/count", name="app_adherents_count", methods={"GET"})
      */
     public function adherentsCountAction(AdherentRepository $adherentRepository): Response
     {
@@ -34,8 +32,7 @@ class AdherentsController extends Controller
     }
 
     /**
-     * @Route("/count-by-referent-area", name="app_adherents_count_for_referent_managed_area")
-     * @Method("GET")
+     * @Route("/count-by-referent-area", name="app_adherents_count_for_referent_managed_area", methods={"GET"})
      * @Entity("referent", expr="repository.findReferent(referent)", converter="querystring")
      */
     public function adherentsCountForReferentManagedAreaAction(

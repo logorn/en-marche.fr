@@ -13,7 +13,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Entity;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -23,8 +22,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class MoocController extends Controller
 {
     /**
-     * @Route("", name="api_mooc_landing")
-     * @Method("GET")
+     * @Route("", name="api_mooc_landing", methods={"GET"})
      */
     public function moocLandingPageAction(MoocRepository $moocRepository, JMSSerializer $serializer): Response
     {
@@ -41,8 +39,7 @@ class MoocController extends Controller
     }
 
     /**
-     * @Route("/sitemap.xml", name="api_mooc_sitemap")
-     * @Method("GET")
+     * @Route("/sitemap.xml", name="api_mooc_sitemap", methods={"GET"})
      */
     public function sitemapAction(SitemapFactory $sitemapFactory): Response
     {
@@ -52,8 +49,7 @@ class MoocController extends Controller
     }
 
     /**
-     * @Route("/{slug}", name="api_mooc")
-     * @Method("GET")
+     * @Route("/{slug}", name="api_mooc", methods={"GET"})
      * @Entity("mooc", expr="repository.findOneBySlug(slug)")
      */
     public function moocAction(Mooc $mooc, MoocNormalizer $normalizer): Response

@@ -3,7 +3,6 @@
 namespace AppBundle\Controller\Api;
 
 use JMS\Serializer\SerializerInterface;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\FormInterface;
@@ -18,8 +17,7 @@ use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 class FormController extends Controller
 {
     /**
-     * @Route("/validate/{formType}", name="api_form_validate", condition="request.isXmlHttpRequest()")
-     * @Method("POST")
+     * @Route("/validate/{formType}", name="api_form_validate", condition="request.isXmlHttpRequest()", methods={"POST"})
      */
     public function validate(Request $request, SerializerInterface $serializer, string $formType): Response
     {

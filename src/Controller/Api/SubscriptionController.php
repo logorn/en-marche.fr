@@ -18,8 +18,7 @@ use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
 class SubscriptionController extends Controller
 {
     /**
-     * @Route("/change", name="app_change_email_subscriptions_webhook")
-     * @Method({"GET", "POST"})
+     * @Route("/change", name="app_change_email_subscriptions_webhook", methods={"GET"," POST"})
      */
     public function changeEmailSubscriptionsAction(Request $request): Response
     {
