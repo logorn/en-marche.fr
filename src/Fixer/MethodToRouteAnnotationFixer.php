@@ -74,6 +74,8 @@ public function helloWorldAction(){
         $methodLine = str_replace('|', ',', $methodLine);
         $methodLine = str_replace('"', '', $methodLine);
         $methodLine = str_replace('\'', '', $methodLine);
+        $methodLine = str_replace('{', '', $methodLine);
+        $methodLine = str_replace('}', '', $methodLine);
         $parenthesisStart = strpos($methodLine, '(') + 1;
         $parenthesisEnd = strpos($methodLine, ')');
         $methodArgs = substr($methodLine, $parenthesisStart, $parenthesisEnd - $parenthesisStart);
@@ -101,9 +103,9 @@ public function helloWorldAction(){
         $routeAnnotationStart = strpos($content, '@Route');
         $openingBraceOfRoute = strpos($content, '(', $routeAnnotationStart);
 
-        if (false !== $openingBraceOfFunction = strpos($content, '()', $openingBraceOfRoute+1)) {
-            $closingBraceOfFunction = strpos($content, ')', $openingBraceOfFunction+1);
-            $routeAnnotationEnd = strpos($content, ')', $closingBraceOfFunction+1);
+        if (false !== $openingBraceOfFunction = strpos($content, 'condition', $openingBraceOfRoute + 1)) {
+            $closingBraceOfFunction = strpos($content, ')', $openingBraceOfFunction + 1);
+            $routeAnnotationEnd = strpos($content, ')', $closingBraceOfFunction + 1);
         } else {
             $routeAnnotationEnd = strpos($content, ')', $routeAnnotationStart);
         }
