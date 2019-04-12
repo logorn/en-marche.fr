@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1c631401dd1f44cc265271ca236881db",
+    "content-hash": "47c85099fb04ef7f90c9754a59cf849b",
     "packages": [
         {
             "name": "a2lix/i18n-doctrine-bundle",
@@ -1048,7 +1048,7 @@
                 }
             ],
             "description": "A Flysystem adapter for storing files in Redis",
-            "time": "2015-10-26T02:54:19+01:00"
+            "time": "2015-10-26T02:54:19+00:00"
         },
         {
             "name": "dasprid/enum",
@@ -3360,7 +3360,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2017-03-20T17:10:46+01:00"
+            "time": "2017-03-20T17:10:46+00:00"
         },
         {
             "name": "h4cc/wkhtmltoimage-amd64",
@@ -3822,7 +3822,7 @@
                 "xml",
                 "yaml"
             ],
-            "time": "2016-12-05T10:18:33+01:00"
+            "time": "2016-12-05T10:18:33+00:00"
         },
         {
             "name": "jms/parser-lib",
@@ -4757,7 +4757,7 @@
                 }
             ],
             "description": "An adapter decorator to enable meta-data caching.",
-            "time": "2017-03-20T09:59:34+01:00"
+            "time": "2017-03-20T09:59:34+00:00"
         },
         {
             "name": "league/flysystem-memory",
@@ -5139,7 +5139,7 @@
                 "paybox",
                 "payment"
             ],
-            "time": "2016-10-12T11:12:48+02:00"
+            "time": "2016-10-12T11:12:48+00:00"
         },
         {
             "name": "lullabot/amp",
@@ -7510,7 +7510,7 @@
                 "framework",
                 "iCalendar"
             ],
-            "time": "2017-02-15T03:06:08+01:00"
+            "time": "2017-02-15T03:06:08+00:00"
         },
         {
             "name": "sabre/event",
@@ -7834,7 +7834,7 @@
                 "dom",
                 "xml"
             ],
-            "time": "2016-10-09T22:57:52+02:00"
+            "time": "2016-10-09T22:57:52+00:00"
         },
         {
             "name": "scheb/two-factor-bundle",
@@ -13010,6 +13010,105 @@
             "time": "2017-12-07T15:36:41+00:00"
         },
         {
+            "name": "steevanb/composer-overload-class",
+            "version": "1.3.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/steevanb/composer-overload-class.git",
+                "reference": "13524cd5410ff9666e26e4211aedead457d01bce"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/steevanb/composer-overload-class/zipball/13524cd5410ff9666e26e4211aedead457d01bce",
+                "reference": "13524cd5410ff9666e26e4211aedead457d01bce",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.4.0 || ^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "steevanb\\ComposerOverloadClass\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Add extra to composer.json, to overload autoloaded class",
+            "time": "2017-07-12T14:16:41+00:00"
+        },
+        {
+            "name": "steevanb/doctrine-stats",
+            "version": "1.3.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/steevanb/doctrine-stats.git",
+                "reference": "c97dad2a3f6c247230cc9667a90e477a4816ffc5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/steevanb/doctrine-stats/zipball/c97dad2a3f6c247230cc9667a90e477a4816ffc5",
+                "reference": "c97dad2a3f6c247230cc9667a90e477a4816ffc5",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/orm": "^2.4.8",
+                "php": "^5.4.0 || ^7.0"
+            },
+            "suggest": {
+                "steevanb/composer-overload-class ^1.0": "Add hydration time to statistics",
+                "steevanb/php-backtrace ^1.1": "Add backtrace to queries"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "steevanb\\DoctrineStats\\Bridge\\": "Bridge",
+                    "steevanb\\DoctrineStats\\Doctrine\\": "Doctrine",
+                    "steevanb\\DoctrineStats\\EventSubscriber\\": "EventSubscriber"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Count managed entities and lazy loaded entities, hydration time, etc",
+            "time": "2017-12-07T19:16:54+00:00"
+        },
+        {
+            "name": "steevanb/php-backtrace",
+            "version": "2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/steevanb/php-backtrace.git",
+                "reference": "b64a8e3abd8134a967b13d0e9de02bb862ee4557"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/steevanb/php-backtrace/zipball/b64a8e3abd8134a967b13d0e9de02bb862ee4557",
+                "reference": "b64a8e3abd8134a967b13d0e9de02bb862ee4557",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.4|^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "DebugBacktrace.php",
+                    "DebugBacktraceHtml.php",
+                    "DebugBacktraceConsole.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Nice debug_backtrace() dump, with call and code preview",
+            "time": "2017-03-30T13:42:32+00:00"
+        },
+        {
             "name": "symfony/phpunit-bridge",
             "version": "v3.4.11",
             "source": {
@@ -13182,7 +13281,8 @@
         "php": ">=7.1",
         "ext-json": "*",
         "ext-openssl": "*",
-        "ext-pdo": "*"
+        "ext-pdo": "*",
+        "ext-amqp": "*"
     },
     "platform-dev": []
 }
