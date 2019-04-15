@@ -266,6 +266,8 @@ referent.adherent.all: Tous
 referent.adherent.subscribed: Abonné(e)
 referent.adherent.unsubscribed: Non-abonné(e)
 referent.status.email: Statut (e-mail)
+referent.checkbox.co_referent: Donner un accès à l'onglet "Mes adhérents"
+referent.save: Enrégistrer
 
 #
 # J'écoute

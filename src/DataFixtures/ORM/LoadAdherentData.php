@@ -357,7 +357,7 @@ class LoadAdherentData extends AbstractFixture implements ContainerAwareInterfac
             'phone' => '33 673654349',
             'registered_at' => '2017-01-25 19:31:45',
         ]);
-        $referent->setReferent(
+        $referent->setReferentInfo(
             [
                 $this->getReference('referent_tag_ch'),
                 $this->getReference('referent_tag_es'),
@@ -390,7 +390,7 @@ class LoadAdherentData extends AbstractFixture implements ContainerAwareInterfac
             'phone' => '33 6765204050',
             'registered_at' => '2018-05-12 12:31:45',
         ]);
-        $referent75and77->setReferent(
+        $referent75and77->setReferentInfo(
             [
                 $this->getReference('referent_tag_77'),
                 $this->getReference('referent_tag_75'),
@@ -417,7 +417,7 @@ class LoadAdherentData extends AbstractFixture implements ContainerAwareInterfac
             'phone' => '33 673654348',
             'registered_at' => '2017-01-25 19:31:45',
         ]);
-        $referentChild->setReferent(
+        $referentChild->setReferentInfo(
             [
                 $this->getReference('referent_tag_ch'),
                 $this->getReference('referent_tag_93'),

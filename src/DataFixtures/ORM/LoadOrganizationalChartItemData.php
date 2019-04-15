@@ -95,6 +95,14 @@ class LoadOrganizationalChartItemData extends Fixture
                                 'resp_digital' => [
                                     'class' => PersonOrganizationalChartItem::class,
                                     'label' => 'Responsable digital',
+                                    'referent_person_link' => [
+                                        'firstName' => 'Carl',
+                                        'lastName' => 'Mirabeau',
+                                        'email' => 'carl999@example.fr',
+                                        'phone' => '06 23 45 67 89',
+                                        'postalAddress' => '122 rue de Mouxy, Mouxy',
+                                        'referent' => 'referent3',
+                                    ],
                                 ],
                             ],
                         ],

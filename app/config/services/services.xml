@@ -193,6 +193,7 @@
         <service id="AppBundle\Referent\ReferentTagManager" />
         <service id="AppBundle\Referent\ManagedCommitteesExporter" />
         <service id="AppBundle\Referent\ManagedEventsExporter" />
+        <service id="AppBundle\Validator\CanBeCoReferentValidator" />
 
         <!-- J'écoute -->
         <service id="AppBundle\Command\ImportJecouteSurveysCommand" />

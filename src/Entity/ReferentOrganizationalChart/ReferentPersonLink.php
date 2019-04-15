@@ -2,12 +2,14 @@
 
 namespace AppBundle\Entity\ReferentOrganizationalChart;
 
+use AppBundle\Entity\Adherent;
 use Doctrine\ORM\Mapping as ORM;
 use AppBundle\Entity\Referent;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ReferentOrganizationalChart\ReferentPersonLinkRepository")
+ * @ORM\EntityListeners({"AppBundle\EntityListener\ReferentPersonLinkListener"})
  */
 class ReferentPersonLink
 {
@@ -72,6 +74,23 @@ class ReferentPersonLink
      */
     private $referent;
 
+    /**
+     * @var Adherent
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Adherent", fetch="LAZY")
+     * @ORM\JoinColumn(onDelete="SET NULL")
+     */
+    private $adherent;
+
+    /**
+     * @var bool
+     *
+     * @Assert\Expression(
+     *     "(not this.getAdherent().isCoReferent) or (this.getAdherent().isCoReferent and this.getAdherent().getReferent() == user)",
+     *     message="referent.adherent.can_be_coreferent")
+     */
+    private $isCoReferent;
+
     public function __construct(PersonOrganizationalChartItem $personOrganizationalChartItem, Referent $referent)
     {
         $this->personOrganizationalChartItem = $personOrganizationalChartItem;
@@ -81,6 +100,10 @@ class ReferentPersonLink
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function setId(int $id): void
+    {
     }
 
     public function getFirstName(): ?string
@@ -141,6 +164,26 @@ class ReferentPersonLink
     public function setReferent(?Referent $referent): void
     {
         $this->referent = $referent;
+    }
+
+    public function getAdherent(): ?Adherent
+    {
+        return $this->adherent;
+    }
+
+    public function setAdherent(?Adherent $adherent): void
+    {
+        $this->adherent = $adherent;
+    }
+
+    public function isCoReferent(): bool
+    {
+        return $this->isCoReferent ?? $this->adherent->isCoReferent();
+    }
+
+    public function setIsCoReferent(bool $isCoReferent): void
+    {
+        $this->isCoReferent = $isCoReferent;
     }
 
     public function getPersonOrganizationalChartItem(): ?PersonOrganizationalChartItem

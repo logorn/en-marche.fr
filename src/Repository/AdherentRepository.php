@@ -13,6 +13,7 @@ use AppBundle\Entity\Committee;
 use AppBundle\Entity\CommitteeMembership;
 use AppBundle\Entity\District;
 use AppBundle\Entity\ReferentManagedArea;
+use AppBundle\Entity\ReferentOrganizationalChart\ReferentPersonLink;
 use AppBundle\Geocoder\Coordinates;
 use AppBundle\Membership\CitizenProjectNotificationDistance;
 use AppBundle\Statistics\StatisticsParametersFilter;
