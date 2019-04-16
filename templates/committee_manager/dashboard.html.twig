@@ -15,7 +15,7 @@
             {{ block('committee_block') }}
         {% endfor %}
 
-        {% if not app.user.isHost %}
+        {% if not app.user.isSupervisor %}
             <div class="l__col l__col--half space--20 committee-block b__nudge--top-15">
                 <p class="text--gray">+ Créer un nouveau comité</p>
             </div>
